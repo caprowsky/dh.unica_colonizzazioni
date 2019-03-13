@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Omeka Theme - Digital Gallery" default="transfer" basedir=".">
+	<property name="version" value="0.1.0" />
+
+	<target name="transfer" description="Moves the theme over to the Omeka install">
+		<resolvepath propertyName="path" file="${project.basedir}/../../../omeka/themes/digital_gallery/" />
+		<phingcall target="rsync">
+			<property name="path" value="${path}" />
+		</phingcall>
+	</target>
+
+	<target name="rsync">
+		<exec executable="rsync" passthru="true" checkreturn="true" escape="false">
+			<arg value="-rvzu" />
+			<arg value="--delete" />
+			<arg value="${project.basedir}/" />
+			<arg value="${path}/" />
+			<arg value="--exclude=build.xml" />
+			<arg value="--exclude=.git*" />
+			<arg value="--exclude=.DS_Store" />
+			<arg value="--exclude=/dev/" />
+		</exec>
+	</target>
+</project>

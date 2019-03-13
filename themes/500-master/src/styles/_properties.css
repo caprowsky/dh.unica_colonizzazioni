@@ -1,0 +1,26 @@
+:root {
+  --bright-red: #68282b;
+  --dark-red: #5c3933;
+  --rich-red: #6a2020;
+  --menu-hover-color: #af9d6c;
+  --body-color: #e6e1d6;
+  --item-meta-bg: #f0eade;
+  --exhibit-menu-link-bg: rgba(175, 157, 108, .6);
+  --body-font-family: "Merriweather", serif;
+  --header-font-family: "Oswald", sans-serif;
+  --button-font-family: "Oswald", sans-serif;
+  --padding-unit: 1.5rem;
+  --screen-xs: 0;
+  --screen-sm: 576px;
+  --screen-md: 768px;
+  --screen-lg: 992px;
+  --screen-xl: 1200px;
+  --body-font-size: 16px;
+  --body-line-height: 1.8;
+}
+
+@custom-media --screen-xs (min-width: 0);
+@custom-media --screen-sm (min-width: 576px);
+@custom-media --screen-md (min-width: 768px);
+@custom-media --screen-lg (min-width: 992px);
+@custom-media --screen-xl (min-width: 1200px);

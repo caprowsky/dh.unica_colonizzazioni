@@ -1,0 +1,49 @@
+#top-nav {
+    font-family: "PT Serif", serif;
+    text-align: center;
+    text-transform: uppercase;
+    border-color: lighten($gold, 30%);
+    @include leading-border(1px, .5, $base-font-size, solid);
+    @include trailing-border(1px, .5, $base-font-size, solid);
+    @include trailer();
+    letter-spacing: 1px;
+    
+    ul {
+        margin-bottom: 0;
+    }
+
+    li ul {
+        display: none;
+    }
+    
+    li {
+        margin: 0 10px;
+    }
+
+	.current_page_item a,
+	.current-menu-item a {
+	}
+	.menu {
+		display:inline-block;
+	}
+}
+
+#bottom-nav {
+	display:block;
+	letter-spacing: 1px;
+	ul {
+		margin: 1em 0;
+	}
+	li {
+		display: inline-block;
+		
+		&:after{
+			content:" | ";
+		}
+		&:last-of-type {
+			&:after{
+				content:"";
+			}
+		}
+	}
+}

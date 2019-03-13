@@ -1,0 +1,79 @@
+/* Item metadata card */
+.item-meta {
+  margin-bottom: var(--padding-unit);
+  padding: var(--padding-unit);
+  background-color: var(--item-meta-bg);
+  box-shadow: 0 0 8px rgba(0, 0, 0, .5);
+  color: black;
+}
+
+.item-meta .element {
+  margin-bottom: var(--padding-unit);
+}
+
+.item-meta .element h3 {
+  margin: 0;
+  font-size: 1em;
+  font-family: var(--body-font-family);
+  color: color(black tint(45%));
+}
+
+.item-meta a {
+  color: var(--rich-red);
+}
+
+.item-meta a:hover {
+  color: color(var(--rich-red) tint(25%));
+}
+
+/* The output formats list */
+.item-output-formats ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.item-output-formats li {
+  display: inline-block;
+}
+
+.item-output-formats a {
+  display: inline-block;
+  padding: 2px 4px;
+  background-color: var(--rich-red);
+  color: white;
+  font-size: .75em;
+  text-decoration: none;
+  transition: background .2s ease;
+}
+
+.item-output-formats a:hover {
+  background-color: color(var(--rich-red) tint(25%));
+  color: white;
+}
+
+/* File metadata */
+.item-file-all-metadata {
+  height: 0;
+  font-size: .85em;
+  transition: height 1s ease;
+  overflow: hidden;
+}
+
+.item-file-all-metadata h3 {
+  margin: 0;
+  font-weight: 200;
+  font-family: var(--body-font-family);
+  font-size: 1em;
+  color: color(var(--body-color) shade(30%));
+}
+
+.item-file-all-metadata .element {
+  margin: 0 0 1em 0;
+  padding: 0 0 1em 0;
+  border-bottom: 1px solid var(--body-color);
+}
+
+.item-file-all-metadata .element:last-child {
+  border-bottom: none;
+}

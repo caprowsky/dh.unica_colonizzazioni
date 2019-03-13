@@ -1,0 +1,124 @@
+@import "base";
+@import "compass/css3";
+@import "compass/typography";
+@import "susy";
+
+/*--------------------------------------------------------------
+3.0 Structure
+--------------------------------------------------------------*/
+
+#wrap {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+/*--------------------------------------------------------------
+5.0 Forms
+--------------------------------------------------------------*/
+
+textarea {
+    max-width: 300px;
+}
+
+
+/*--------------------------------------------------------------
+6.0 Navigation
+--------------------------------------------------------------*/
+#top-nav {
+    text-align: left;
+}
+    
+.pagination-nav {
+    border-bottom: none;
+    margin-bottom:initial;
+}
+
+#sort-links {
+    width:100%;
+    float:left;
+    margin-top:0;
+    margin-bottom: 3em; 
+    background-color: transparent;
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid rgba(0,0,0,.15);
+    .sort-label {
+        background-color: #fff;
+        padding: rhythm(.35) 7px rhythm(.35) 10px;
+    }
+}
+#bottom-nav {
+    display: none;
+}
+/*--------------------------------------------------------------
+7.1 Header
+--------------------------------------------------------------*/
+#search-form {
+    input[type=text] {
+        width: 50%;
+        float: left;
+    }    
+    input[type=submit], button[type=submit] {
+        width: 50%;
+        float: left;
+    }
+}
+
+/*--------------------------------------------------------------
+8.1 Simple Pages
+--------------------------------------------------------------*/
+
+#home .text, #home .secondary {
+    padding: 1em .5em;
+    font-size:14px;
+    line-height:24px;
+}
+#home .collection .collection-description {
+    width:100%;
+    float:left;
+}
+#about, #faqs, #staff, #partners {
+    #content {
+        padding-right:0;
+    }
+}
+/*--------------------------------------------------------------
+8.3 Collection Tree
+--------------------------------------------------------------*/
+
+.gallery {
+    img {
+        width:100%;
+        float:left;
+        background-color: #fff;
+        @include trailer();
+    }
+    p {
+        width:100%;
+        float:left;
+        padding-left:0px;
+    }
+}
+
+/*--------------------------------------------------------------
+8.4 Contribution
+--------------------------------------------------------------*/
+
+#contribution-item-metadata, #contribution-type-form, #contribution-confirm-submit {
+    max-width:100%!important;
+}
+
+#recaptcha_area, #recaptcha_table {
+    max-width: 300px!important;
+}
+#contribution-type-form .contribution-userprofile {
+    .two.columns.alpha {
+        width:100%;
+        float:left;
+    }
+    .five.columns.omega {
+        float:left;
+        margin:10px 0 0;
+    }
+
+}
+

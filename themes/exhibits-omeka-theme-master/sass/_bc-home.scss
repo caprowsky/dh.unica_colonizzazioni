@@ -1,0 +1,98 @@
+#home {
+  main {
+    margin-top: $bc_main_top_margin;
+    padding-top: 0;
+    background-color: $bc_white;
+
+    #home-title {
+      padding: 8px 16px;
+      font-family: "Open Sans Condensed", "Open Sans", sans-serif;
+      font-weight: bold;
+      font-size: 98px;
+
+      .bclib-name {
+        display: block;
+        text-transform: uppercase;
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: 16px;
+      }
+    }
+
+    .site-description {
+      padding: 8px 16px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 24px;
+      margin-top: 1em;
+    }
+
+    .top-exhibit-block {
+      padding: 0;
+    }
+
+    .about-block {
+      background-color: $bc_white;
+      height: 524px;
+    }
+
+    a.front-page-exhibit-link, a.front-page-exhibit-link:visited {
+      color: #000;
+    }
+
+    a.front-page-exhibit-link:hover {
+      color: $bc_caption_blue_bright;
+    }
+  }
+
+  figure {
+    padding: 0;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  figcaption {
+    padding: .5em 1em;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    background-color: $bc_light_grey;
+    border-left-color: $bc_exhibit-color;
+    border-left-width: 10px;
+    border-left-style: solid;
+    box-shadow: $bc_box-shadow;
+    max-width: 80%;
+  }
+
+  .three-exhibit-row figcaption .exhibit-subtitle {
+    font-size: .9em;
+  }
+
+  .exhibit-1 {
+    figcaption {
+      .exhibit-title {
+        font-size: 42px;
+      }
+    }
+  }
+
+  .exhibit-2, .exhibit-3 {
+    figcaption {
+      .exhibit-title {
+        font-size: 24px;
+      }
+    }
+  }
+
+  .exhibit-two {
+    figcaption {
+      border-left-color: purple;
+    }
+  }
+
+  .exhibit-three {
+    figcaption {
+      border-left-color: green;
+    }
+  }
+}

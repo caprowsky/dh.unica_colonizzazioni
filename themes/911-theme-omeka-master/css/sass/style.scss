@@ -1,0 +1,11 @@
+@media screen {
+    @import "screen";
+}
+
+@media screen and (max-width: 500px){
+    @import "mobile";
+}
+
+@media print {
+    @import "print";
+}

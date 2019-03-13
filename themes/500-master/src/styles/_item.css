@@ -1,0 +1,84 @@
+.item-title {
+  max-width: var(--screen-lg);
+  margin: 0 auto 1.75em;
+  padding: 0 var(--padding-unit);
+  font-family: var(--header-font-family);
+  font-weight: 400;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, .5);
+}
+
+.item-details {
+  max-width: var(--screen-lg);
+  margin: 0 auto;
+  padding: 0 var(--padding-unit);
+}
+
+/* Individual files */
+.item-files-list .item-file {
+  position: relative;
+  margin-bottom: var(--padding-unit);
+}
+
+.item-files-list .item-file img {
+  box-shadow: 0 0 8px rgba(0, 0, 0, .5);
+}
+
+.item-file-caption {
+  margin: 1em 0;
+  font-size: .8em;
+}
+
+/* Meta data toggle button */
+.item-file-all-metadata-toggle {
+  display: inline-block;
+  margin-bottom: var(--padding-unit);
+  padding: .25em;
+  border: none;
+  outline: 0;
+  background-color: transparent;
+  font-family: var(--body-font-family);
+  font-size: .8em;
+  color: var(--body-color);
+  transition: border .2s ease, color .2s ease;
+}
+
+.item-file-all-metadata-toggle:hover {
+  cursor: pointer;
+}
+
+.item-file-all-metadata-toggle::before {
+  content: "";
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  vertical-align: middle;
+  background-image: url("../images/chevron-down.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
+.item-file-all-metadata-toggle.toggled::before {
+  background-image: url("../images/chevron-up.svg");
+}
+
+/* Item pagination */
+.item-pagination {
+  margin: var(--padding-unit) 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+}
+
+.item-pagination a {
+  text-decoration: none;
+  transition: border .2s ease;
+}
+
+@media (--screen-sm) {
+  .item-pagination {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+  }
+}

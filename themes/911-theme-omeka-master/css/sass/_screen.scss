@@ -1,0 +1,674 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "base";
+@import "compass/css3";
+@import "susy";
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 Reset
+2.0 Typography
+3.0 Structure
+4.0 Elements
+    4.1 Headers
+5.0 Forms
+6.0 Navigation
+    6.1 Links
+    6.2 Menus
+7.0 Content
+    7.1 Header
+    7.2 Footer
+    7.3 Items
+    7.4 Collections
+8.0 Plugin Styles
+    8.1 Simple Pages
+    8.2 Carousel
+    8.3 Collection Tree
+    8.4 Contribution
+    8.5 User Profiles
+
+/*--------------------------------------------------------------
+1.0 Reset
+---------------------------------------------------------------- */
+
+@import "compass/reset";
+
+/*--------------------------------------------------------------
+2.0 Typography
+--------------------------------------------------------------*/
+
+@import "compass/typography";
+
+/*--------------------------------------------------------------
+3.0 Structure
+--------------------------------------------------------------*/
+
+#wrap {
+    @include container;
+    @include padding-leader(2);
+    @include padding-trailer(2);
+    background-color: rgba(255,255,255,.4);
+}
+
+#content {
+    position: relative;
+    @include trailer ();
+}
+
+/*--------------------------------------------------------------
+4.0 Elements
+--------------------------------------------------------------*/
+
+* {
+    @include box-sizing(border-box);
+}
+
+html {
+    background: url('../images/bg_small.jpg') #808080 no-repeat top center fixed;
+    background-size: cover;
+    font-family: $font-main;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    color: #4d4d4d;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    height:100%;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+a {
+    text-decoration: none;
+    color: $gold;
+    
+    &:hover, &:active {
+        color: lighten(saturate($gold, 20%), 10%);
+    }
+}
+
+em, i {
+    font-style: italic;
+}
+
+strong, b {
+    font-weight: bold;
+}
+
+p, ol, ul, dl {
+    @include trailer();
+}
+ol {
+    padding-left: 2em;
+}
+
+ul {
+    padding-left: 1.25em;
+    
+    li {
+        list-style-type: disc;
+    }
+} 
+
+/*--------------------------------------------------------------
+4.1 Headers
+--------------------------------------------------------------*/
+
+h1, h2, h3, h4 {
+    font-family: "PT Serif", serif;
+}
+h1 {
+    font-size: 2 * $base-font-size;
+    line-height: 2 * $base-line-height;
+    color: $blue;
+    @include trailer(1, 2 * $base-font-size);
+}
+
+h2 {
+    font-size: 1.75 * $base-font-size;
+    line-height: 1.25 * $base-line-height;
+    @include trailer(1, 1.5 * $base-font-size);
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.25 * $base-font-size;
+    line-height: $base-line-height;
+    @include trailer(1, 1.5 * $base-font-size);
+    font-weight: bold;
+}
+
+h4 {
+    @include trailer(1, 1.5 * $base-font-size);
+    font-weight: bold;
+}
+
+/*--------------------------------------------------------------
+5.0 Forms and Tables
+--------------------------------------------------------------*/
+
+@import "forms";
+
+table {
+    width: 100%;
+    margin: rhythm(2) 0;
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+
+th,td {
+    margin:0;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray;
+}
+
+th {
+    text-align:left;
+    color: $blue;
+    font-weight:bold;
+    border-bottom: 2px solid $gray;
+}
+.field {
+    @include trailer();
+}
+
+/*--------------------------------------------------------------
+6.0 Navigation
+--------------------------------------------------------------*/
+@import "navigation";
+
+nav ul {
+    padding-left: 0;
+
+    li {
+        display: inline-block;
+    }
+    
+    li ul {
+        display: none;
+    }
+}
+
+.secondary-nav li {
+    margin-right: 10px;
+}
+
+.pagination-nav {
+    width:100%;
+    float:left;
+    margin-bottom:2em;
+}
+
+.pagination {
+    padding-left: 0;
+    width: 100%;
+    float: left;
+    
+    &:first-of-type {
+        @include trailer(1);
+    }
+
+    & > *:last-child {
+        margin-right: 0;
+    }
+    
+    .page-input {
+        padding: rhythm(.25) 10px rhythm(.125);
+    }
+
+    input[type=text] {
+        background: transparent;
+        border: 0;
+        border-bottom-color: rgba(0,0,0,.3);
+        padding: 0;
+        @include trailing-border(1px, 0, $base-font-size, dotted);
+        text-align: center;
+        font-size: $base-font-size;
+        line-height: $base-line-height;
+        font-family: "Helvetica", "Arial", sans-serif;
+        width: 3em;
+        margin: 0;
+    }
+    
+    li {
+        display: block;
+        @include box-shadow(0px 1px 1px rgba(0,0,0,.15));
+        float: left;
+    }
+    
+    .pagination_next,
+    .pagination_previous {
+        background-color: $gold;
+        
+        a {
+            display: inline-block;
+            padding: rhythm(.25) 10px;
+            color: #fff;
+        }
+    }
+    
+    & + *:not(#sort-links) {
+        clear: both;
+    }
+    
+    &:last-of-type + * {
+        clear: both;
+    }
+}
+
+#sort-links {
+    float: right;
+    margin-top: -6.25em;
+
+    span {
+        padding: rhythm(.4) 7px rhythm(.4) 10px;
+        @include box-shadow(0px 1px 1px rgba(0,0,0,.15));
+        background-color: #fff;
+    }
+
+    ul, li, a {
+        display: inline-block;
+    }
+
+    ul {
+        margin-bottom: 0;
+        padding-left: 0;
+    }
+    li {
+        @include box-shadow(0px 1px 1px rgba(0,0,0,.15));
+    }
+    a {
+        background-color: $gold;
+        color: #fff;
+        padding: rhythm(.25) 10px;
+    }
+    
+    & + * {
+        clear: both;
+    }
+}
+
+/*--------------------------------------------------------------
+7.0 Content
+--------------------------------------------------------------*/
+
+section {
+    display:block;
+    padding:.5em 0 1em;
+}
+
+.element {
+    @include trailer(1);
+} 
+
+.item-img * {
+    display: block;
+    vertical-align: top;
+    @include trailer();
+}
+ 
+#flash {
+    li {
+        list-style-type: none;
+    }
+}
+/*--------------------------------------------------------------
+7.1 Header
+--------------------------------------------------------------*/
+
+header {
+    position: relative;
+}
+
+#site-title {
+    @include trailer();
+    text-align: center;
+
+    * {
+        vertical-align: top;
+    }
+
+    a {
+        display: inline-block;
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+        width:100%;
+    }
+}
+
+#search-form {
+    width: 100%;
+    @include trailer();
+    float: left;
+    
+    input[type=text] {
+        width: 70%;
+        float: left;
+    }    
+    input[type=submit], button[type=submit] {
+        width: 30%;
+        float: left;
+    }
+}
+
+/*--------------------------------------------------------------
+7.2 Footer
+--------------------------------------------------------------*/
+
+footer {
+    clear: both;
+    border-top: 0.07143em solid lighten($gold, 30%);
+    @include trailer();
+    letter-spacing: 1px;
+    
+    nav li {
+        margin-right: 10px;
+    }
+}
+#footer-text {
+    padding-top:10px;
+    font-size:.8em;
+    p {
+        margin-bottom:.5em;
+    }
+}
+
+/*--------------------------------------------------------------
+7.3 Items
+--------------------------------------------------------------*/
+
+.items {
+    .item {
+        border-color: $gray;
+        @include trailing-border(1px, 0, $base-font-size, solid);
+        @include trailer();
+    }
+    
+    .item-meta {
+        padding-bottom:1em;
+    }
+    .element-set {
+        @include trailer(2);
+    }
+
+}
+
+.search-entry {
+    margin-bottom:1em;
+    .advanced-search-element {
+        max-width: 300px;
+    }
+}
+
+#advanced-search-form {
+    @include trailer(2);
+}
+
+/*--------------------------------------------------------------
+7.4 Collections
+--------------------------------------------------------------*/
+
+.collections {
+    h2 {
+        margin-bottom:1em;
+    }
+    .collection {
+        border-color: $gray;
+        @include trailing-border(1px, 0, $base-font-size, solid);
+        @include trailer();
+    }
+    #collection-items {
+        .hentry {
+            @include trailer();
+            padding-bottom: 1em;
+            border-bottom: 0.07143em solid rgba(0, 0, 0, 0.2);
+
+            &:last-of-type{
+                border-bottom:none;
+            }
+        }
+        p {display:none;}
+    }
+    #collection-tree {
+        ul {
+            padding:0;
+        }
+        li {
+            list-style-type: none;
+        }
+        ul ul {
+            padding-left:2em;
+            margin-bottom:0;
+            li {
+                list-style-type: square;
+                padding:.5em 1em;
+
+            }
+            ul * {
+                margin:0;
+            }
+        }
+    }
+}
+
+/*--------------------------------------------------------------
+8.0 Plugin Styles
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+8.1 Simple Pages
+--------------------------------------------------------------*/
+/* Removing breadcrumbs and h1 from pages as index.html */
+#simple-pages-breadcrumbs {
+    display:none;
+}
+
+#home h1 {
+    display:none;
+}
+#home {
+    .text {
+        width:100%;
+        float:left;
+        padding:1em 2em 0;
+        line-height: 25px;
+        font-size:15px;
+        line-height: 25px;
+    }
+    .secondary {
+        background-color:rgba(142,130,100,.3);
+        padding:1em 2em;
+        margin-bottom:1.5em;
+        width:100%;
+        float:left;
+        font-size: 15px;
+
+        p:last-of-type{
+            margin-bottom:0;
+        }
+    }
+}
+#home .collection {
+    display:inline-block;
+    margin-bottom:1em;
+    padding-bottom:.5em;
+    border-bottom:0.07143em solid rgba(0, 0, 0, 0.2);
+    &:last-of-type {
+        border-bottom:none;
+    }
+
+    img {
+        float:left;
+        padding:0 1em 1em 0;
+    }
+    .collection-description{
+        width:70%;
+        float:left;
+    }
+}
+.gallery {
+    width: 100%;
+    float:left;
+    margin-bottom:15px;
+
+    img {
+        width:20%;
+        float:left;
+        background-color: #fff;
+    }
+    p {
+        width:80%;
+        float:left;
+        padding-left:20px;
+    }
+}
+#about, #faqs, #staff, #partners {
+    #content {
+        padding-right:5em;
+    }
+}
+
+#faqs #primary ul {
+    margin:0 0 1em;
+    padding-left:1.5em;
+    li {
+        list-style-type: square;
+        padding-bottom:5px;
+    }
+}
+
+/*--------------------------------------------------------------
+8.2 Carousel
+--------------------------------------------------------------*/
+.jcarousel img {
+    margin:0 auto;
+}
+
+/*--------------------------------------------------------------
+8.3 Collection Tree
+--------------------------------------------------------------*/
+.collection-tree #collection-tree {
+    display:block;
+    float:left;
+    margin-bottom:1em;
+    width:100%;
+    ul{
+        margin:0 0 1em 0;
+        padding:0;
+
+         li {
+            list-style-type: none;           
+            font-weight: bold;
+            letter-spacing: 1px;
+            a {
+                width:23%;
+                min-width:160px;
+                height:150px;
+                margin-bottom:0;
+                display:block;
+                padding:1em 1.5em;
+                float:left;
+                background-color:rgba(142,130,100,.4); 
+                margin:0 10px 10px 0;
+                @include shadow;
+            }
+        }
+    }
+   
+    ul ul {
+        display:none;
+    }
+}
+
+
+/*--------------------------------------------------------------
+8.4 Contribution
+--------------------------------------------------------------*/
+.contribution #primary {
+    display: block;
+    margin-bottom: 1em;
+}
+.contribution #recaptcha_widget_div {
+    margin-bottom:1em;
+}
+
+#contribution-type-form {
+    margin-top:2em;
+    .alpha {
+        font-family: "PT Serif", serif;
+        margin-bottom:.5em;
+        font-weight: bold;
+        font-size: $base-font-size*1.2;
+    }
+    .explanation {
+        margin-bottom:1em;
+    }
+    .contribution-userprofile {
+        fieldset {
+            padding:0;
+        }
+        .field {
+            width: 100%;
+            float:left;
+        }
+        .two.columns.alpha {
+            width:20%;
+            float:left;
+        }
+        .five.columns.omega {
+            width:75%;
+            float:left;
+            margin-left:20px;
+        }
+    }
+}
+#contribution-confirm-submit {
+    margin-top:1em;
+    p {
+        margin: 1em 0;
+        font-weight: bold;
+    }
+    input[type=submit] {
+        margin:1em 0;
+    }
+}
+
+/*--------------------------------------------------------------
+8.5 User Profiles
+--------------------------------------------------------------*/
+.userprofiles.required-profile {
+    margin-bottom:1.5em;
+    p {
+        margin-bottom: 1em;
+    }
+    ul {
+        margin:0;
+        padding:0;
+        li {
+            list-style-type: none;
+        }
+        a {
+            display:inline-block;
+            background-color:rgba(142,130,100,.2);
+            padding:.5em;
+            @include shadow;
+        }
+    }
+}
+#primary {
+    width:100%;
+    float:left;
+    #edit-form {
+        width:100%;
+        float:left;
+    }
+
+}

@@ -1,0 +1,22 @@
+.items.show {
+  .sub-header {
+    background-color: $bc_item-color;
+  }
+
+  .metadata-box-wrap {
+    @include styled-left-border($bc_item-color);
+  }
+  .item-main {
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .previous-page, .next-page {
+    background-color: $bc_item-color;
+  }
+
+  #dublin-core-identifier {
+    display: none;
+  }
+}

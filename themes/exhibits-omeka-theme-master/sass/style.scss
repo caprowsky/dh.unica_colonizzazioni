@@ -1,0 +1,245 @@
+@grid-gutter-width :         300px;
+
+@import "bc-variables";
+@import "bc-mixins";
+@import "bootstrap";
+@import "bc-modular-header";
+@import "mixins";
+@import "bc-header";
+@import "bc-footer";
+@import "bc-exhibit-nav";
+@import "bc-item-page";
+@import "bc-simple-pages";
+@import "bc-exhibit-pages";
+@import "bc-home";
+
+.accessibility-text {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 38px;
+  margin: 11px 0;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+p {
+  line-height: 1.6;
+}
+
+.noteworthy-exhibits {
+  margin-top: 1em;
+  clear: both
+}
+
+$featured_exhibit_height: 225px;
+$featured_exhibit_tail: 20px;
+$featured_exhibit_bottom_margin: 20px;
+
+.exhibits.browse {
+  .secondary-nav {
+    display: none;
+  }
+
+  main {
+    margin-top: $bc_main_top_margin;
+  }
+}
+
+.featured-exhibits {
+
+  .exhibit-list {
+    background-color: $bc_light_grey;
+    height: ($featured_exhibit_height + $featured_exhibit_bottom_margin) * 2;
+    margin-bottom: $featured_exhibit_bottom_margin;
+    @include styled-left-border($bc_exhibit-color);
+
+    .exhibit {
+      height: $featured_exhibit_height;
+    }
+  }
+}
+
+.full-exhibit-list {
+  background-color: $bc_light_grey;
+  @include styled-left-border($bc_exhibit-color);
+
+  .exhibit {
+  }
+}
+
+.exhibit {
+  background-color: $bc_white;
+  padding: 1em;
+  margin-bottom: $featured_exhibit_bottom_margin;
+  clear: both;
+  overflow: hidden;
+  position: relative;
+
+  a.image {
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+.sub-header {
+  color: $bc_white;
+  text-align: center;
+  text-transform: uppercase;
+  h2 {
+    font-size: 24px;
+    margin: 12px 0 6px 0;
+  }
+}
+
+.exhibits .sub-header {
+  background-color: $bc_exhibit-color;
+}
+
+.exhibit h3 > a:before {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 2.5rem;
+  height: 100%;
+  content: "";
+  display: block;
+  background-color: $bc_control_gray_bg;
+  z-index: 50;
+}
+
+.exhibit h3 > a:after {
+  content: "";
+  display: block;
+  height: 0;
+  width: 0;
+  border: 16px inset transparent;
+  border-left: solid $bc_control_gray_fg;
+  position: absolute;
+  right: -13px;
+  top: 50%;
+  margin-top: -16px;
+  z-index: 51;
+}
+
+.summary {
+  #primary {
+    background-color: $bc_white;
+    padding: 1em;
+    @include styled-left-border($bc_exhibit-color);
+  }
+
+  .exhibit-description img {
+    float: left;
+    margin-right: 1em;
+  }
+
+  .exhibit-credits h3 {
+    font-size: $font-size-base;
+  }
+
+  nav#exhibit-pages {
+    background-color: rgba(255, 255, 255, .97);
+    padding: 4px 12px;
+    margin-top: 1em;
+
+    @include styled-left-border($bc_exhibit-color);
+
+    h3 {
+      font-size: 20px;
+    }
+
+    ul {
+      margin-left: 15px;
+      padding-left: 0;
+    }
+  }
+}
+
+.enter-exhibit {
+  border: 3px solid #000;
+  display: inline-block;
+  margin-bottom: 26px;
+  margin-left: 1rem;
+  position: relative;
+
+  & > a {
+    padding: 0.3rem 1.5rem 0.3rem 0.5rem;
+    margin: 2px;
+    background-color: $bc_caption_blue;
+    color: $bc_white;
+    display: inline-block;
+    position: relative;
+    font-size: 20px;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: lighten($bc_caption_blue, 8%);
+      text-decoration: none;
+    }
+
+    &:active {
+      text-decoration: none;
+    }
+  }
+  &:after {
+    @include css-triangle(8px, rgba(255, 255, 255, 0.8), left);
+    position: absolute;
+    top: 9px;
+    right: -4px;
+  }
+}
+
+.next-page, .previous-page {
+  color: $bc_white;
+  text-decoration: none;
+  padding: 8px;
+  margin: 8px;
+  font-size: 14px;
+}
+
+.nav-prev {
+  width: 50%;
+}
+
+.nav-next {
+  width: 50%;
+  float: right;
+  text-align: right;
+  margin: 0;
+}
+
+.metadata-box-wrap {
+  background-color: $bc_light_grey;
+  @include styled-left-border($bc_exhibit-color);
+  padding-bottom: 16px;
+  margin-bottom: 26px;
+
+  .metadata-box {
+    background-color: $bc-white;
+    padding: 16px 32px 32px 32px;
+    overflow: hidden;
+  }
+}
+
+main {
+  @extend .container;
+}
+
+.exhibit-title, .item-title {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-weight: bold;
+}
+
+.exhibit-page-title {
+  font-family: "Open Sans Condensed", sans-serif;
+}

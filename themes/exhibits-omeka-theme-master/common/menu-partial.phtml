@@ -1,0 +1,31 @@
+<?php $count = 0;
+
+$menu = new \BCLib\NavMenu($this->container);
+$pages = $menu->pages();
+
+?>
+<?php foreach ($pages as $page): ?>
+    <?php if ($page->has_submenu): ?>
+        <li class="dropdown <?= $page->active_status; ?>" role="presentation">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                <?= $page->label; ?>
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <?php foreach ($page->pages() as $child): ?>
+                    <li class="<?= $page->class; ?> <?= $child->active_status; ?>">
+                        <a href="<?= $child->href; ?>">
+                            <?= $child->label; ?>
+                        </a>
+                    </li>
+                <?php endforeach ?>
+            </ul>
+        </li>
+    <?php else: ?>
+        <li class="<?= $page->class; ?> <?= $page->active_status; ?>" role="presentation">
+            <a class="nav-header" href="<?= $page->href; ?>">
+                <?= $page->label; ?>
+            </a>
+        </li>
+    <?php endif; ?>
+<?php endforeach; ?>

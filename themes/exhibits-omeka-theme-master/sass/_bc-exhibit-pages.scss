@@ -1,0 +1,39 @@
+.exhibit-gallery-item {
+  margin-top: 3em;
+}
+
+.longtext {
+  column-count: 2;
+  column-gap: 3em;
+  -moz-column-count: 2;
+  -moz-column-gap: 3em;
+}
+
+.layout-gallery .gallery-showcase.left, .layout-gallery .gallery.left {
+  margin-right: 2em;
+}
+
+.exhibit-item .exhibit-item-caption {
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: .9em
+}
+
+#exhibit-blocks {
+  @include styled-left-border($bc_exhibit-color);
+  padding-left: 0;
+
+  #exhibit-blocks-wrap {
+    background-color: $bc_light_grey;
+    padding-bottom: 1em;
+    overflow: hidden;
+
+    .exhibit-block {
+      background-color: $bc_white;
+      padding: 2em 1em 3em 1em;
+      margin-bottom: 1.5em;
+      overflow: hidden;
+    }
+  }
+}

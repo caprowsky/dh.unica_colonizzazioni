@@ -1,0 +1,29 @@
+/*  ============================================================================
+    Messages
+    ========================================================================= */
+
+.message {
+	border-style: dotted;
+	border-width: 1px 0;
+	margin-bottom: 1em;
+	padding: 0.5em 1em;
+
+	ul {
+		padding: 0 0 0 1em;
+		margin: 0;
+	}
+
+	li {
+		line-height: 1.5;
+	}
+
+	&.error {
+		background-color: #FEE;
+		color: #900;
+	}
+
+	&.success {
+		background-color: #EFE;
+		color: #090;
+	}
+}

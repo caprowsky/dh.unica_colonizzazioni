@@ -1,0 +1,779 @@
+* {
+  @include box-sizing(border-box);
+}
+
+@include establish-baseline;
+
+html {
+  background-color: #F3F3EB;
+  @include background-image(
+    linear-gradient(rgba(black,0.1) 0, transparent 200px),
+    url('../images/bg.jpg')
+  );
+  background-position: 0 2px;
+  border-top: 3px solid darken($base-color, 5%);
+
+}
+
+body {
+  font-family: $default-font;
+  color: $default-color;
+  position:relative;
+  padding:0;
+  @include container;
+
+  &.neatline.fullscreen {
+      max-width: 100%;
+      padding:0;
+      margin:0;
+  }
+}
+
+a {
+  color: $link-color;
+  @include link-colors($link-color, $link-hover-color, $link-active-color,
+  $link-visited-color, $link-focus-color);
+
+  @include transition(color $default-transition-duration, background-color $default-transition-duration);
+
+  &:before {
+    @include single-transition(color);
+  }
+
+  img {
+    @include single-transition(opacity);
+  }
+}
+
+#{headings()} {
+  a {
+    text-decoration:none;
+  }
+}
+
+h1,h2 {
+  font-weight:normal;
+}
+
+h1 {
+  @include adjust-font-size-to(32px);
+  margin: rhythm(1, 32px) 0;
+  text-shadow: rgba(255,255,255,0.5) -1px 0;
+
+  div[role=main] &:first-child {
+    @include adjust-font-size-to(40px);
+  }
+}
+
+h2 {
+  @include adjust-font-size-to(28px);
+  @include adjust-leading-to(1,28px);
+  margin: rhythm(2, 28px) 0 rhythm(1, 28px);
+
+  h1 + &,
+  h1 ~ * &:first-child {
+    @include leader(1, 28px);
+  }
+
+}
+
+h3 {
+  @include adjust-font-size-to(24px);
+  color: $default-color-light;
+  margin: rhythm(1, 24px) 0 0;
+  h2 + &,
+  h2 + * & {
+    margin-top:0 !important;
+  }
+}
+
+h4 {
+  @include adjust-font-size-to($base-font-size);
+  @include leader(2);
+  h3 + & {
+    @include leader(1);
+  }
+}
+
+h5 {
+  @include adjust-font-size-to($base-font-size);
+  color: $default-color-light;
+  @include leader(2);
+  h4 + & {
+    margin: rhythm(1) 0 0;
+  }
+
+}
+
+h6 {
+  @include adjust-font-size-to($base-font-size);
+  font-style:italic;
+  color: $default-color-light;
+  margin: rhythm(2) 0;
+  h5 + & {
+    margin: rhythm(1) 0;
+  }
+}
+
+#{headings(3,6)} {
+  + p,
+  + ul,
+  + ol {
+    margin-top:0;
+  }
+
+  + .element-text {
+    :first-child {
+      margin-top:0;
+    }
+  }
+}
+
+p {
+  margin: rhythm(1) 0;
+}
+
+blockquote {
+  margin:0;
+  @include adjust-font-size-to(20px);
+  border-left: rhythm(0.25, 20px) solid $default-color-lightest;
+  padding-left: rhythm(1, 20px);
+  font-style:italic;
+
+  figure & {
+    text-align:left;
+  }
+
+  & + figcaption {
+    margin-left: rhythm(1.25, 14px);
+    text-align:left;
+  }
+
+  & :last-child {
+    margin-bottom:0;
+  }
+}
+
+/* Forms */
+form {
+  @include leader(1);
+  @include trailer(1);
+
+  .field {
+    @include trailer(1);
+  }
+
+}
+
+  fieldset {
+    margin:0;
+    padding:0;
+    border:none;
+  }
+
+  textarea {
+    width:100%;
+  }
+
+  textarea,
+  input,
+  select,
+  button {
+    font-family: $alt-font;
+    color: $default-color;
+    @include adjust-font-size-to(16px);
+    line-height:1;
+    padding: rhythm(0.25, 16px);
+  }
+
+  textarea,
+  input[type=text] {
+    border:1px solid $default-color-lightest;
+    @include box-shadow(0);
+  }
+
+nav {
+  @include horizontal-nav;
+}
+
+figure {
+  margin: rhythm(2) 0;
+  text-align:center;
+
+  img {
+    border: 1px solid $default-color-lightest;
+    padding: rhythm(0.25);
+    background: #fff;
+    @include box-shadow(0 0 5px rgba(black, 0.1));
+  }
+}
+
+figcaption {
+  @include adjust-font-size-to(16px);
+  @include leader(1, 16px);
+  @include adjust-leading-to(1, 16px);
+  color: $default-color-light;
+}
+
+dl {
+  margin: rhythm(1) 0;
+
+  dt {
+    font-weight:bold;
+  }
+  dd {
+    margin: 0 0 rhythm(1) rhythm(1);
+  }
+}
+
+ul {
+  list-style:disc;
+}
+
+ol {
+  list-style:decimal;
+}
+
+ul,ol {
+  padding:0;
+  margin: rhythm(1) 0 rhythm(1) rhythm(1);
+
+  header nav &,
+  footer nav & {
+      ul {
+          display:none;
+      }
+  }
+
+  nav & {
+    margin-left:0;
+    padding-left:0;
+    list-style:none !important;
+  }
+
+  ul {
+    list-style: circle;
+  }
+
+  ol {
+    list-style: upper-alpha;
+  }
+
+  ul, ol {
+    margin: 0 0 0 rhythm(1);
+
+    ul {
+      list-style:square;
+    }
+
+    ol {
+      list-style:lower-alpha;
+    }
+  }
+}
+
+table {
+  border-collapse:collapse;
+  border-spacing:0;
+  width: 100%;
+}
+
+th,
+td {
+}
+
+th {
+  @include trailing-border(1px);
+  border-bottom-color: $default-color-lightest;
+  text-align:left;
+}
+
+tr {
+  @include trailing-border(1px);
+  border-color:$default-color-lightest;
+}
+
+td {
+  vertical-align:top;
+  padding: rhythm(0.25);
+}
+
+img {
+  max-width:100%;
+  width:auto;
+  height:auto;
+}
+
+code {
+  font-family: monospace;
+  color: $code-color;
+}
+
+del {
+  color: $default-color-lighter;
+}
+
+ins {
+  text-decoration:none;
+  background: $ins-color;
+}
+
+address {
+  font-style:normal;
+  margin: rhythm(1) 0;
+}
+
+br {
+  margin:0;
+  line-height:0;
+}
+
+hr {
+  border:none;
+  text-align:center;
+  &:before {
+    display:block;
+    content: " · · · · · ";
+    color: rgba($default-color-light, 0.5);
+  }
+}
+
+/* Have to use more specific selector to override Omeka core styles. */
+body #admin-bar {
+  background: transparent !important;
+  @include box-shadow(none !important);
+  text-align:center !important;
+  @include clearfix;
+  @include beveled-line(after);
+  @include adjust-font-size-to(12px);
+  margin:0;
+  padding:0;
+
+  ul {
+    @include adjust-leading-to(1, 12px);
+  }
+
+  li {
+    a {
+      text-decoration: none;
+      color: $link-color !important;
+
+      &:link {
+        color: $link-color !important;
+      }
+
+      &:visited {
+        color: $link-visited-color !important;
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        color:$link-hover-color !important;
+      }
+    }
+
+    &:before {
+      content:none;
+      padding:0;
+      margin:0;
+    }
+  }
+}
+
+
+// Site header
+header[role=banner] {
+  @include clearfix;
+
+  h1 {
+    margin:0;
+    text-align:center;
+  }
+
+  a {
+    text-decoration:none;
+  }
+
+  nav {
+    @include beveled-line;
+    @include beveled-line(after);
+    clear:both;
+    ul {
+      text-align:center;
+      @include adjust-leading-to(2);
+    }
+
+    .active {
+      a {
+        color: $default-color;
+      }
+    }
+  }
+}
+
+/* Simple Search */
+#search-container {
+  position:relative;
+  max-width: space(10, 18);
+  margin: 0 auto rhythm(1);
+
+  input {
+    margin:0;
+    &[type=text] {
+      color: #555;
+      width:100%;
+      border: 0;
+      padding-right: 2em;
+    }
+
+    &[type=submit] {
+      position:absolute;
+      background-color: transparent;
+      top: 50%;
+      right: 0em;
+      margin-top:-1em;
+      content: "";
+      text-indent: -9999px;
+      background-image: url('../images/search-icon.png');
+      background-position: 50% 50%;
+      background-repeat:no-repeat;
+      height: 2em;
+      width: 2em;
+      line-height:0;
+      border:none;
+      cursor:pointer;
+      @include opacity(0.5);
+
+      &:hover,
+      &:focus,
+      &:active {
+        outline:none;
+        @include opacity(1);
+      }
+    }
+  }
+}
+
+div[role=main] {
+  @include padding-trailer(1);
+}
+
+#featured-item,
+#recent-items {
+  .image {
+    width: rhythm(2.5);
+    height: rhythm(2.5);
+    float:left;
+    display:block;
+    margin: rhythm(0.25) gutter() rhythm(1) 0;
+  }
+
+  .item-description {
+    margin-top:0;
+    @include adjust-font-size-to(16px);
+  }
+
+  .item + .item {
+    border-top: 1px dotted #ccc;
+  }
+}
+
+#recent-items,
+.browse {
+  div.item,
+  div.collection {
+    @include clearfix;
+  }
+}
+
+#featured-exhibit {
+  .image {
+    width: rhythm(2.5);
+    height: rhythm(2.5);
+    float:right;
+    display:block;
+    margin-left: gutter();
+    margin-top: rhythm(0.25);
+  }
+
+  .description {
+    margin-top:0;
+    @include adjust-font-size-to(16px);
+  }
+
+}
+
+.pagination {
+  @include inline-list;
+  @include span-columns(9, 18);
+
+  form {
+    display:inline;
+  }
+
+  input {
+    width: 2em;
+  }
+
+  a {
+    text-decoration:none;
+  }
+}
+
+#sort-links {
+  @include span-columns(9 omega, 18);
+  text-align:right;
+
+  ul {
+    @include inline-list;
+
+    a {
+      text-decoration:none;
+    }
+
+    li + li:before {
+      content: " · ";
+      color: $default-color-lighter;
+    }
+  }
+}
+
+.item-pagination {
+  display:block;
+  clear:both;
+  text-align:center;
+  padding-top:rhythm(1);
+}
+
+.browse {
+  .item {
+    h2 {
+      margin-bottom:0;
+    }
+
+    .item-img {
+      float:right;
+      margin-left: gutter();
+    }
+
+    & + .item {
+      @include beveled-line;
+      margin-top: rhythm(1);
+    }
+  }
+
+  .collection {
+
+    h2 {
+      margin-bottom:0;
+    }
+
+    & + .collection {
+      @include beveled-line;
+      @include leader(1);
+    }
+
+    .view-items-link {
+      margin-bottom:0;
+    }
+
+    @include at-breakpoint(12) {
+      .description {
+        @include span-columns(12, 18);
+      }
+
+      .meta {
+        @include span-columns(4 omega, 18);
+
+        h3 {
+            margin-top:0;
+        }
+      }
+    }
+  }
+}
+
+#collection-items {
+    .item {
+        
+        p {
+            @include adjust-font-size-to(15px);
+            @include adjust-leading-to(0.75,15px);
+        }
+
+    }
+
+}
+
+#outputs {
+  @include clearfix;
+  @include leader(2);
+  .outputs-label {
+    font-weight:bold;
+    &:after {
+      content:": ";
+    }
+  }
+
+  p {
+    margin-top:0;
+    display:inline;
+  }
+}
+
+#advanced-search-form .field + .field {
+  border-top: 1px dotted $default-color-lightest;
+  @include padding-leader(1);
+}
+
+#search-narrow-by-fields {
+  select,
+  input[type=text] {
+    margin-right: rhythm(0.25);
+  }
+}
+
+.neatline.show {
+
+    div[role=main] h1 {
+        display:inline-block;
+    }
+
+
+    .nl-fullscreen {
+        display:inline;
+        @include adjust-font-size-to(15px);
+        @include adjust-leading-to(1,15px);
+        text-decoration:none;
+        margin-left: 0.25em;
+        &:before {
+            content: "(";
+            color: #999;
+        }
+
+        &:after {
+            content: ")";
+            color: #999;
+        }
+    }
+
+    #neatline-map {
+        clear:both;
+        margin:0;
+    }
+}
+
+footer[role=contentinfo] {
+  @include beveled-line(before);
+  text-align:center;
+  p,ul {
+    @include adjust-font-size-to(16px);
+    @include rhythm(1, 0, 0, 1, 16px);
+  }
+}
+
+@include at-breakpoint(12) {
+  body #admin-bar {
+    text-align:right !important;
+  }
+
+  header[role=banner] {
+    @include padding-leader(1);
+
+    h1 {
+      @include span-columns(12,18);
+      text-align:left;
+      @include adjust-leading-to(1,32px);
+      margin:0;
+    }
+
+    #search-container {
+      @include span-columns(6 omega, 18);
+      form {
+        margin:0;
+      }
+    }
+
+    nav {
+      @include clearfix;
+    }
+
+  }
+
+  .show {
+    .element-set {
+      @include span-columns(12,18);
+    }
+
+    #item-tags,
+    #item-citation,
+    #item-output-formats {
+      @include span-columns(6 omega, 18);
+      clear:right;
+    }
+  }
+
+  #featured-content {
+    @include span-columns(9, 18);
+  }
+  #recent-items {
+    @include span-columns(9 omega, 18);
+  }
+
+#advanced-search-form {
+  .field {
+    @include clearfix;
+
+    label,
+    .label {
+      @include span-columns(6, 18);
+      text-align:right;
+    }
+
+    .inputs {
+      @include span-columns(12 omega, 18);
+    }
+
+    .add_search {
+      clear:right;
+      @include push(6, 18);
+    }
+  }
+
+  .submit {
+    @include push(6, 18);
+  }
+}
+
+footer[role=contentinfo] {
+  @include clearfix;
+  text-align:left;
+
+  nav {
+    @include span-columns(12 omega, 18);
+    text-align:right;
+  }
+
+  #footer-text {
+    @include span-columns(6, 18);
+  }
+}
+
+}
+
+@if $development == true {
+
+    * {
+      background-image:none;
+      background-color: transparent !important;
+    }
+
+    html {
+        @include baseline-grid-background;
+    }
+    body {
+        @include susy-grid-background;
+    }
+}
+

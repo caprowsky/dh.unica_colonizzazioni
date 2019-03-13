@@ -1,0 +1,47 @@
+/* Items which appear within an exhibit block */
+.exhibit-items {
+  margin-bottom: var(--padding-unit);
+}
+
+.exhibit-items.thumbnail {
+  width: 15em;
+  max-width: 100%;
+}
+
+.exhibit-items.right {
+  float: none !important;
+  margin: 1em auto !important;
+}
+
+.exhibit-items.left {
+  float: none !important;
+  margin: 1em auto !important;
+}
+
+.exhibit-items .download-file {
+  text-align: center;
+}
+
+.exhibit-items .download-file img {
+  box-shadow: 0 0 4px rgba(0, 0, 0, .5);
+}
+
+.exhibit-item-caption {
+  text-shadow: 0 0 4px rgba(0, 0, 0, .5);
+  font-style: italic;
+  color: white;
+}
+
+@media (--screen-md) {
+  .exhibit-items.right {
+    float: right !important;
+    margin-left: 2% !important;
+    margin-right: 0 !important;
+  }
+
+  .exhibit-items.left {
+    float: left !important;
+    margin-left: 0 !important;
+    margin-right: 2% !important;
+  }
+}
