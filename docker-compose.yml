@@ -9,12 +9,8 @@ version: "2"
 # 2. Crea la dir /mariadb-init e inseiri lì il dump del db .sql
 # 3. avvia il docker compose
 # $ docker-compose up (verifica dai log che stia caricando il db)
-# 4. resetta la pw di admin
-# $ drush upwd --password="admin" "admin"
-# 5. Pulisci la cache
-# $ drush cc all
-# 6. Imposta directory di scrittura file temporanei
-# $ chmod a+w sites/default/files/
+# Vai all'indirizzo http://localhost:9999
+
 
 
 services:
