@@ -23,7 +23,7 @@ services:
       PHP_FPM_USER: wodby
       PHP_FPM_GROUP: wodby
     volumes:
-      - ./web:/var/www/html/colonizzazioni
+      - ./web:/var/www/html/colonizzazioninterne
 
   apache:
     image: wodby/apache:latest
@@ -37,6 +37,6 @@ services:
       APACHE_DOCUMENT_ROOT: /var/www/html/
     volumes:
       - ./docroot:/var/www/html
-      - ./web:/var/www/html/colonizzazioni
+      - ./web:/var/www/html/colonizzazioninterne
     ports:
       - "9000:80"
