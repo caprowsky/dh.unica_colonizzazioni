@@ -69,7 +69,7 @@ $port = $_SERVER['SERVER_PORT'];
 if (($base_root == 'http' && $port != '80') || ($base_root == 'https' && $port != '443')) {
     $base_url .= ":$port";
 }
-// $base_url = $base_root = 'https://storia.dh.unica.it';
+$base_url = $base_root = 'https://storia.dh.unica.it';
 
 // Set the path.
 if ($dir = trim(dirname($_SERVER['SCRIPT_NAME']), '\,/')) {
