@@ -40,14 +40,14 @@ services:
       - ./web:/var/www/html/colonizzazioninterne
     ports:
       - "9000:80"
-  pma:
-    image: phpmyadmin/phpmyadmin
-    container_name: colonizzazioni_pma
-    environment:
-      PMA_HOST: mariadb
-      PMA_USER: drupal
-      PMA_PASSWORD: drupal
-      PHP_UPLOAD_MAX_FILESIZE: 1G
-      PHP_MAX_INPUT_VARS: 1G
-    ports:
-      - '8080:80'
+#  pma:
+#    image: phpmyadmin/phpmyadmin
+#    container_name: colonizzazioni_pma
+#    environment:
+#      PMA_HOST: mariadb
+#      PMA_USER: drupal
+#      PMA_PASSWORD: drupal
+#      PHP_UPLOAD_MAX_FILESIZE: 1G
+#      PHP_MAX_INPUT_VARS: 1G
+#    ports:
+#      - '8080:80'
