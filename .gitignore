@@ -1,0 +1,8 @@
+## Drupal Ignore
+/web/files/
+
+
+.idea/
+.docker-sync/
+/mariadb-init/*.sql
+/mariadb-init/*.zip
