@@ -14,6 +14,11 @@ services:
       - ./mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
 #      - /path/to/mariadb/data/on/host:/var/lib/mysql # I want to manage volumes manually.
     command: mysqld --innodb-large-prefix --innodb-file-format=barracuda --innodb-file-per-table
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "3"
 
   php:
     image: wodby/php:7.1-dev-4.11.8
@@ -24,6 +29,11 @@ services:
       PHP_FPM_GROUP: wodby
     volumes:
       - ./web:/var/www/html/risorse_omc
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "3"
 
   apache:
     image: wodby/apache:latest
@@ -31,7 +41,7 @@ services:
     depends_on:
       - php
     environment:
-      APACHE_LOG_LEVEL: debug
+      APACHE_LOG_LEVEL: warn
       APACHE_BACKEND_HOST: php
       APACHE_VHOST_PRESET: php
       APACHE_DOCUMENT_ROOT: /var/www/html/
@@ -40,6 +50,11 @@ services:
       - ./web:/var/www/html/risorse_omc
     ports:
       - "5000:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "3"
 #  pma:
 #    image: phpmyadmin/phpmyadmin
 #    container_name: colonizzazioni_pma

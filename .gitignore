@@ -6,4 +6,6 @@
 .idea/
 .docker-sync/
 /mariadb-init/*.sql
+/mariadb-init/*.sql.gz
 /mariadb-init/*.zip
+/mariadb-init/*.tar.gz
